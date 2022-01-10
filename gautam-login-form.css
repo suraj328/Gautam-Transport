@@ -1,0 +1,37 @@
+.container {
+    background-color: #525968db;
+    height: 70vh;
+    width: 70vw;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+}
+
+.login-background {
+    display: grid;
+    background-color: red;
+    height: 65vh;
+    width: 65vw;
+    margin: auto;
+    margin-top: 2%;
+    grid-template-rows: 500px 500px;
+    grid-template-columns: 500px 500px;
+}
+
+.display-grid {
+    display: grid;
+    /* justify-content: center; */
+    justify-content: space-around;
+    /* flex-wrap: nowrap; */
+    grid-template-rows: 500px 500px;
+    grid-template-columns: 500px 500px;
+}
+
+.inner-form {
+    margin: 4%;
+    border: 2px solid black;
+    background-image: url("log0.jpg");
+    /* background-color: burlywood; */
+}

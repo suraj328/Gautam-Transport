@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gautam-Transport-Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-image: url("login.jpg");
+        }
+        
+        .container {
+            background-color: #f5f5f582;
+            border-radius: 5px;
+            height: 560px;
+            width: 824px;
+            margin: auto;
+            margin-top: 95px;
+            box-sizing: border-box;
+            display: grid;
+            justify-content: center;
+        }
+        
+        img {
+            border-radius: 10px;
+            opacity: initial;
+        }
+        
+        .display-grid {
+            background-image: url("login.jpg");
+            margin-top: 18px;
+            height: 519px;
+            width: 796px;
+            display: grid;
+            grid-template-columns: 313px 384px;
+            grid-template-rows: 492px 460px;
+            justify-content: space-around;
+        }
+        
+        .inner-div {
+            margin-top: 34px;
+        }
+        
+        .input-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        input {
+            box-sizing: border-box;
+            height: 40px;
+            width: 300px;
+            font-size: larger;
+            border: none;
+            border-bottom: 2px solid blue;
+            outline: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .input-div0 {
+            margin-top: 64px;
+        }
+        
+        .input-div {
+            margin-top: 50px;
+        }
+        
+        #login-submit {
+            margin-top: 50px;
+            height: 50px;
+            width: 173px;
+            background-color: rgb(0, 162, 255);
+            font-size: larger;
+            border: none;
+        }
+        
+        button {
+            border-radius: 5px;
+        }
+        
+        button:hover {
+            box-shadow: 1px 1px 1px 5px rgb(0, 162, 255);
+        }
+        
+        input:hover {
+            box-shadow: 1px 1px 1px 5px rgb(0, 162, 255);
+            border-top: 2px solid blue;
+            border: none;
+        }
+        
+        .form-background {
+            border-radius: 10px;
+        }
+        
+        .create-account {
+            margin-top: 40px;
+            height: 50px;
+            width: 173px;
+            background-color: rgb(0, 162, 255);
+            font-size: larger;
+            border: none;
+        }
+        
+        .forget-password {
+            margin-top: 40px;
+            font-size: larger;
+            border: none;
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <div class="login-background display-grid">
+                <img class="inner-div" src="pic.jpg" alt="" height="450px">
+                <div class="inner-div form-background">
+                    <form action="#">
+                        <div class="input-block">
+                            <button class="create-account"><a href="signup.html" target="parent">Craete an Account</a></button>
+                            <input class="input-div0" type="email" placeholder="Email ID" name="name">
+                            <input class="input-div" type="password" placeholder="password" name="password">
+                            <button type="submit" id="login-submit">login</button>
+
+                            <button class="forget-password"><a href="#">forget password</a></button>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </body>
+
+</html>
