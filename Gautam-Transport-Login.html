@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gautam-Transport-Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/fontawesome.min.css" integrity="sha512-RUDCXG3qlIoMxuNYXWvgh3WT6t+dBpm4yzBHkLmqw3itMjBPKFtOz1/tyHrcJqtCD3lkDLH72wzbRB1/iEhEpw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <style>
         * {
             margin: 0;
@@ -14,12 +17,12 @@
         }
         
         body {
-            background-image: url("login.jpg");
+            background-image: url("simple-background-backgrounds-passion-simple-1-5c9b95bd34713.png");
         }
         
         .container {
-            background-color: #f5f5f582;
-            border-radius: 5px;
+            background-color: #00a6ff2b;
+            border-radius: 33px;
             height: 560px;
             width: 824px;
             margin: auto;
@@ -35,7 +38,8 @@
         }
         
         .display-grid {
-            background-image: url("login.jpg");
+            /* background-image: url("login.jpg"); */
+            background-image: url("wp2561061-simple-background.jpg");
             margin-top: 18px;
             height: 519px;
             width: 796px;
@@ -43,6 +47,7 @@
             grid-template-columns: 313px 384px;
             grid-template-rows: 492px 460px;
             justify-content: space-around;
+            border-radius: 30px;
         }
         
         .inner-div {
@@ -56,6 +61,7 @@
         }
         
         input {
+            background-color: #00a6ff40;
             box-sizing: border-box;
             height: 40px;
             width: 300px;
@@ -63,6 +69,7 @@
             border: none;
             border-bottom: 2px solid blue;
             outline: none;
+            color: black;
         }
         
         a {
@@ -72,10 +79,12 @@
         
         .input-div0 {
             margin-top: 64px;
+            font-family: fontawesome;
         }
         
         .input-div {
             margin-top: 50px;
+            font-family: fontawesome;
         }
         
         #login-submit {
@@ -96,9 +105,10 @@
         }
         
         input:hover {
-            box-shadow: 1px 1px 1px 5px rgb(0, 162, 255);
-            border-top: 2px solid blue;
-            border: none;
+            /* box-shadow: 1px 1px 1px 5px rgb(0, 162, 255); */
+            border-bottom: 2px solid blue;
+            border-right: 2px solid blue;
+            background-color: rgba(255, 255, 255, 0);
         }
         
         .form-background {
@@ -119,20 +129,54 @@
             font-size: larger;
             border: none;
         }
+        
+        .logo-div {
+            margin-top: 25px;
+            background-color: #00a6ff40;
+            border-radius: 12px;
+        }
+        
+        .logo-paragraph {
+            text-align: center;
+        }
+        
+        footer {
+            margin-top: 30px;
+        }
+        
+        p>a {
+            color: red;
+        }
+        
+        p>a>i {
+            color: blue;
+            font-size: 30px;
+        }
     </style>
 
     <body>
         <div class="container">
             <div class="login-background display-grid">
-                <img class="inner-div" src="pic.jpg" alt="" height="450px">
+                <!-- <img class="inner-div" src="pic.jpg" alt="" height="450px"> -->
+                <div class="logo-div">
+                    <img src="Gautam Transport-logos_black.png" height="287" width="287" alt="">
+                    <div class="logo-paragraph">
+                        <article class="logo-paragraph">Gautam transporatation is Trustable transporatation for transoprting goods.Remeber us while transoprting goods</article>
+
+                        <footer>
+                            <p>!!Follow Us!! Belive Us!!</p>
+                            <p>Contact Us!!</p>
+                            <p><a href=""><i class="fab fa-facebook-square"></i></a> <a href=""><i class="fas fa-envelope-open-text"></i></a></p>
+                        </footer>
+                    </div>
+                </div>
                 <div class="inner-div form-background">
                     <form action="#">
                         <div class="input-block">
                             <button class="create-account"><a href="signup.html" target="parent">Craete an Account</a></button>
-                            <input class="input-div0" type="email" placeholder="Email ID" name="name">
+                            <input class="input-div0" type="email" placeholder=" &#xf007; " name="name">
                             <input class="input-div" type="password" placeholder="password" name="password">
-                            <button type="submit" id="login-submit">login</button>
-
+                            <button type="submit" id="login-submit">Login <i class="fas fa-sign-in-alt"></i></button>
                             <button class="forget-password"><a href="#">forget password</a></button>
                         </div>
                 </div>
@@ -140,6 +184,7 @@
             </div>
         </div>
         </div>
+
     </body>
 
 </html>
