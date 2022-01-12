@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gautam-Transport-Login</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/fontawesome.min.css" integrity="sha512-RUDCXG3qlIoMxuNYXWvgh3WT6t+dBpm4yzBHkLmqw3itMjBPKFtOz1/tyHrcJqtCD3lkDLH72wzbRB1/iEhEpw==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+
+
+    <!--this link is known as cdn link basically used for unique code of fontawesome and it hels to give fontawsome icon inside input field or input tag -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <style>
         * {
             margin: 0;
@@ -117,11 +120,14 @@
         
         .create-account {
             margin-top: 40px;
-            height: 50px;
-            width: 173px;
-            background-color: rgb(0, 162, 255);
+            text-decoration: underline overline;
             font-size: larger;
             border: none;
+        }
+        
+        .create-account:hover {
+            background-color: rgba(0, 128, 0, 0.281);
+            color: blue;
         }
         
         .forget-password {
@@ -173,9 +179,9 @@
                 <div class="inner-div form-background">
                     <form action="#">
                         <div class="input-block">
-                            <button class="create-account"><a href="signup.html" target="parent">Craete an Account</a></button>
-                            <input class="input-div0" type="email" placeholder=" &#xf007; " name="name">
-                            <input class="input-div" type="password" placeholder="password" name="password">
+                            <a class="create-account" href="signup.html" target="parent">Craete an Account</a>
+                            <input class="input-div0 email" type="email" placeholder="&#xf007; Email" name="name">
+                            <input class="input-div" type="password" placeholder="&#xf084; Password" name="password">
                             <button type="submit" id="login-submit">Login <i class="fas fa-sign-in-alt"></i></button>
                             <button class="forget-password"><a href="#">forget password</a></button>
                         </div>
