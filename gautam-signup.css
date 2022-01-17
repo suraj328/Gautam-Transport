@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background-image: url("login.jpg"); */
+    background-color: #8a2be2ab;
+}
+
+.container {
+    background-color: #f5f5f582;
+    border-radius: 5px;
+    height: 560px;
+    width: 824px;
+    margin: auto;
+    margin-top: 95px;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: center;
+}
+
+img {
+    border-radius: 10px;
+    opacity: initial;
+}
+
+.display-grid {
+    background-color: #8a2be2;
+    margin-top: 18px;
+    height: 519px;
+    width: 796px;
+    display: grid;
+    justify-content: center;
+}
+
+.inner-div {
+    margin-top: 34px;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+    justify-items: space-around;
+}
+
+input {
+    box-sizing: border-box;
+    height: 40px;
+    width: 300px;
+    font-size: larger;
+    border: none;
+    border-bottom: 2px solid blue;
+    margin-top: 10px;
+    outline: none;
+    padding: 8px;
+    font-family: fontawesome;
+}
+
+#signup-submit {
+    margin-top: 5px;
+    height: 50px;
+    width: 173px;
+    background-color: rgb(0, 162, 255);
+    font-size: larger;
+    border: none;
+}
+
+input:hover {
+    box-shadow: 1px 1px 1px 4px green;
+    border-bottom: none;
+}
+
+.form-background {
+    border-radius: 10px;
+}
+
+#margin-top {
+    margin-top: 30px;
+}
+
+#Gautam {
+    margin: auto;
+    font-size: large;
+    color: green;
+}

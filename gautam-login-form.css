@@ -1,37 +1,143 @@
-.container {
-    background-color: #525968db;
-    height: 70vh;
-    width: 70vw;
-    position: absolute;
-    top: 15%;
-    left: 15%;
-    right: 15%;
-    bottom: 15%;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.login-background {
-    display: grid;
-    background-color: red;
-    height: 65vh;
-    width: 65vw;
+body {
+    background-image: url("images/gautam-login-background.jpg");
+}
+
+.container {
+    background-color: #00a6ff2b;
+    border-radius: 33px;
+    height: 560px;
+    width: 824px;
     margin: auto;
-    margin-top: 2%;
-    grid-template-rows: 500px 500px;
-    grid-template-columns: 500px 500px;
+    margin-top: 95px;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: center;
+}
+
+img {
+    border-radius: 10px;
+    opacity: initial;
 }
 
 .display-grid {
+    background-image: url("images/gautam-form-background.jpg");
+    margin-top: 18px;
+    height: 519px;
+    width: 796px;
     display: grid;
-    /* justify-content: center; */
+    grid-template-columns: 313px 384px;
+    grid-template-rows: 492px 460px;
     justify-content: space-around;
-    /* flex-wrap: nowrap; */
-    grid-template-rows: 500px 500px;
-    grid-template-columns: 500px 500px;
+    border-radius: 30px;
 }
 
-.inner-form {
-    margin: 4%;
-    border: 2px solid black;
-    background-image: url("log0.jpg");
-    /* background-color: burlywood; */
+.inner-div {
+    margin-top: 34px;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    background-color: #00a6ff40;
+    box-sizing: border-box;
+    padding: 8px;
+    height: 40px;
+    width: 300px;
+    font-size: larger;
+    border: none;
+    border-bottom: 2px solid blue;
+    outline: none;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.input-div0 {
+    margin-top: 64px;
+    font-family: fontawesome;
+}
+
+.input-div {
+    margin-top: 50px;
+    font-family: fontawesome;
+}
+
+#login-submit {
+    margin-top: 50px;
+    height: 50px;
+    width: 173px;
+    background-color: rgb(0, 162, 255);
+    font-size: larger;
+    border: none;
+}
+
+button {
+    border-radius: 5px;
+}
+
+button:hover {
+    box-shadow: 1px 1px 1px 5px rgb(0, 162, 255);
+}
+
+input:hover {
+    border-bottom: 2px solid green;
+    border-right: 2px solid green;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.form-background {
+    border-radius: 10px;
+}
+
+.create-account {
+    margin-top: 40px;
+    text-decoration: underline overline;
+    font-size: larger;
+    border: none;
+}
+
+.create-account:hover {
+    background-color: rgba(0, 128, 0, 0.281);
+    color: blue;
+}
+
+.forget-password {
+    margin-top: 40px;
+    font-size: larger;
+    border: none;
+}
+
+.logo-div {
+    margin-top: 25px;
+    background-color: #00a6ff40;
+    border-radius: 12px;
+}
+
+.logo-paragraph {
+    text-align: center;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+p>a {
+    color: red;
+}
+
+p>a>i {
+    color: blue;
+    font-size: 30px;
 }

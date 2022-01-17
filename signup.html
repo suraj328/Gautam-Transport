@@ -5,116 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gautam-Transport-Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            /* background-image: url("login.jpg"); */
-            background-color: #8a2be2ab;
-        }
-        
-        .container {
-            background-color: #f5f5f582;
-            border-radius: 5px;
-            height: 560px;
-            width: 824px;
-            margin: auto;
-            margin-top: 95px;
-            box-sizing: border-box;
-            display: grid;
-            justify-content: center;
-        }
-        
-        img {
-            border-radius: 10px;
-            opacity: initial;
-        }
-        
-        .display-grid {
-            background-color: #8a2be2;
-            margin-top: 18px;
-            height: 519px;
-            width: 796px;
-            display: grid;
-            justify-content: center;
-        }
-        
-        .inner-div {
-            margin-top: 34px;
-        }
-        
-        .input-block {
-            display: flex;
-            flex-direction: column;
-            justify-items: space-around;
-        }
-        
-        input {
-            box-sizing: border-box;
-            height: 40px;
-            width: 300px;
-            font-size: larger;
-            border: none;
-            border-bottom: 2px solid blue;
-            margin-top: 10px;
-            outline: none;
-        }
-        
-        #signup-submit {
-            margin-top: 5px;
-            height: 50px;
-            width: 173px;
-            background-color: rgb(0, 162, 255);
-            font-size: larger;
-            border: none;
-        }
-        
-        input:hover {
-            box-shadow: 1px 1px 1px 4px green;
-            border-bottom: none;
-        }
-        
-        .form-background {
-            border-radius: 10px;
-        }
-        
-        #margin-top {
-            margin-top: 30px;
-        }
-        
-        #Gautam {
-            margin: auto;
-            font-size: large;
-            color: green;
-        }
-    </style>
+    <title>Gautam-Transport-Signup</title>
+    <link rel="stylesheet" href="gautam-signup.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <body>
-        <div class="container">
-            <div class="login-background display-grid">
-                <div class="inner-div form-background">
-                    <p id="Gautam">Gautam Transport</p>
-                    <form action="#">
-                        <div class="input-block">
-                            <div id="margin-top">create-account</div>
-                            <input type="text" placeholder="Full Name" name=full_name>
-                            <input type="email" placeholder="Email ID" name="name">
-                            <input type="password" placeholder="password" name="password">
-                            <input type="password" placeholder=" comfirm password" name="cpassword">
-                            <p style="color: red;">*for profile picture</p>
-                            <input type="file" name="profile">
-                            <button type="submit" id="signup-submit">signup</button>
-                        </div>
-                </div>
-                </form>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-background display-grid">
+            <div class="inner-div form-background">
+                <p id="Gautam">Gautam Transport</p>
+                <form action="#">
+                    <div class="input-block">
+                        <input type="text" placeholder="&#xf007; Full Name" name=full_name>
+                        <input type="email" placeholder="&#xf199; Email ID" name="name">
+                        <input type="password" placeholder="&#xf26e; password" name="password">
+                        <input type="password" placeholder="&#xf26e; comfirm password" name="cpassword">
+                        <p style="color: red;">*for profile picture</p>
+                        <input type="file" name="profile">
+                        <button type="submit" id="signup-submit">signup</button>
+                    </div>
             </div>
+            </form>
         </div>
-        </div>
-    </body>
+    </div>
+    </div>
+</body>
 
 </html>
