@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="gautam-home-navbar.css">
+
+
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- fontawsome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <span><img src="pic.jpg" alt="load.."></span>
+
+            <span class="transport-text">Gautam Transport</span>
+            <span class="right-bar"><i onclick="bar();" class="fas fa-bars bar-icon"></i></span>
+            <span class="search-box">
+            <input class="search input" type="Search" placeholder="&#xf002; Search">
+            <button class="search search-btn" type="submit"><i class="fal fa-search"></i></button>
+        </span>
+
+            <span id="right-content">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Features</a>
+        <a href="#">Option</a>
+
+
+        </span>
+
+        </nav>
+    </header>
+</body>
+<script>
+    function bar() {
+        document.getElementById('right-content').style.display = "block";
+        var element = document.getElementById("right-content");
+        element.classList.toggle("content");
+    }
+</script>
+
+</html>

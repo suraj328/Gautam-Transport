@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
+.navbar {
+    @import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
+    font-family: 'Luxurious Roman', cursive;
+}
+
+.navbar {
+    background-color: #607d8bd4;
+    width: 100%;
+    height: 60px;
+    line-height: 50px;
+}
+
+.right-bar {
+    float: right;
+    display: none;
+}
+
+#right-content {
+    float: right;
+    padding-right: 30px;
+}
+
+a {
+    color: #444444;
+    padding: 10px;
+    font-size: larger;
+    text-decoration: none;
+}
+
+.transport-text {
+    padding-left: 10px;
+}
+
+img {
+    padding-left: 5px;
+    float: left;
+    height: 58px;
+    width: 58px;
+    border-radius: 39px;
+}
+
+.bar-icon {
+    font-size: 30px;
+    padding-right: 5px;
+    /* display: none; */
+}
+
+@media (max-width:840px) {
+    a {
+        display: block;
+    }
+    .right-bar {
+        display: inline;
+        cursor: pointer;
+    }
+    .search {
+        display: none;
+    }
+    #right-content {
+        background-color: #607d8bd4;
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        top: 60px;
+        text-align: center;
+    }
+    .content {
+        left: -110%;
+        transition: all .5s;
+    }
+}
+
+input {
+    outline: none;
+    border-radius: 5px;
+    padding: 3px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 4px solid #444444;
+    font-family: fontawesome;
+}
+
+.input:hover {
+    background-color: #607d8bbe;
+}
+
+.transport-text {
+    color: #444444;
+    font-size: larger;
+}
+
+.search-btn {
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.search-btn:hover {
+    background-color: #607d8bbe;
+}
+
+a:hover {
+    background-color: #607d8bbe;
+    color: black;
+}
+
+.search-box {
+    padding-left: 10px;
+}
