@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-
+    <style>
+        #content {
+            background-color: #607d8bba;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,25 +34,28 @@
             <input class="search input" type="Search" placeholder="&#xf002; Search">
             <button class="search search-btn" type="submit"><i class="fal fa-search"></i></button>
         </span>
-
             <span id="right-content">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Features</a>
-        <a href="#">Option</a>
-
-
+        <a class="active"href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">Location</a>
+        <select name="session" id="session">
+            <option value="nochange" selected disabled></option>
+            <option value="https://www.youtube.com">Change Pw</option></a>
+            <option value="gautam-signup.html">Log-Out</option>
+        </select>
         </span>
-
         </nav>
+        <hr style="background-color: #607d8b;height: 5px;border: none;">
     </header>
+
+    <section id="content"></section>
+    <hr style="background-color: #607d8b;height: 5px;border: none;">
+    <footer id="footer">
+
+        <a href="tel:+9779809603594">Call</a> <span>Gautam Transport</span>
+
+    </footer>
 </body>
-<script>
-    function bar() {
-        document.getElementById('right-content').style.display = "block";
-        var element = document.getElementById("right-content");
-        element.classList.toggle("content");
-    }
-</script>
+<script src="gautam-home-navbar-js.js"></script>
 
 </html>

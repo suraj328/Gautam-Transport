@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+:root {
+    --nav-footer-bg: #607d8bd4;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
 .navbar {
     @import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
@@ -10,7 +14,7 @@
 }
 
 .navbar {
-    background-color: #607d8bd4;
+    background-color: var(--nav-footer-bg);
     width: 100%;
     height: 60px;
     line-height: 50px;
@@ -112,4 +116,46 @@ a:hover {
 
 .search-box {
     padding-left: 10px;
+}
+
+option {
+    outline: none;
+    background-color: #607d8b6c;
+    /* font-size: larger; */
+    font-family: 'Luxurious Roman', cursive;
+    width: 84px;
+}
+
+select {
+    font-family: 'Luxurious Roman', cursive;
+    width: 20px;
+    outline: none;
+    background-color: #607d8b73;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.active {
+    background-color: #607d8bbe;
+}
+
+
+/* content whoose lies between navbar and footer */
+
+#content {
+    min-height: calc(100vh - 60px - 5px - 5px - 52px);
+}
+
+
+/* for footer */
+
+#footer {
+    background-color: var(--nav-footer-bg);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+    font-family: 'Luxurious Roman', cursive;
+    font-size: larger;
 }
