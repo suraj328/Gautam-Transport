@@ -1,7 +1,8 @@
 <?php
     include 'Backend/dbconfig.php';
     session_start();
-    $emailExist=false;
+    $Exist=false;
+    $Existimg=false;
     
     if (!empty($_POST['full_name']) || !empty($_POST['email']) || !empty($_POST['password']) || !empty($_POST['cpassword']) || !empty($_FILES['profile']) ) {
         
@@ -52,18 +53,21 @@
                                 echo"not inserted";
                             }
 
+                        }else{
+                            $Existimg=true;
+                            $_SESSION['alertimg']="invalid image";
                         }
                         echo'<script>alert("Check your mail to verify your account");</script>';
                     }else{
                         
-                    $emailExist=true;
+                    $Exist=true;
                     $_SESSION['alert']="invalid email";
                         
                     }
                 
                 }else{
                     
-                    $emailExist=true;
+                    $Exist=true;
                     $_SESSION['alert']="email already taken";
                 }
 
@@ -100,7 +104,7 @@
                         <?php  
 
                         
-                        if ($emailExist==true) {
+                        if ($Exist==true) {
                             echo$_SESSION['alert'];
                         }
                         ?>
@@ -112,7 +116,15 @@
                         <div id="alertcpassword" style="color:red;background-color:yellow;"></div>
                         <p style="color: red;">*for profile picture</p>
                         <input type="file" id="profile" name="profile">
-                        <div id="alertfile" style="color:red;background-color:yellow;"></div>
+                        <div id="alertfile" style="color:red;background-color:yellow;">
+                        <?php  
+
+                        if ($Existimg==true) {
+                            echo$_SESSION['alertimg'];
+                        }
+                        ?>
+                    
+                        </div>
                         
                         <input type="submit" value="sign up" id="signup-submit">
                     </div>
