@@ -1,6 +1,10 @@
 <?php
     include 'Backend/dbconfig.php';
+    session_start();
+    $emailExist=false;
+    
     if (!empty($_POST['full_name']) || !empty($_POST['email']) || !empty($_POST['password']) || !empty($_POST['cpassword']) || !empty($_FILES['profile']) ) {
+        
         $full_name=strtolower(trim($_POST['full_name']));
         $email=strtolower(trim($_POST['email']));
         $password=$_POST['password'];
@@ -12,21 +16,19 @@
         $imageError=$image['error'];
 
 
-
-        
-        
-        
-
         
         if($password==$cpassword){
+
+
+
             $hashpassword=password_hash($password,PASSWORD_BCRYPT);
             $token=bin2hex(random_bytes(5));
-            echo$token;
+            
 
             $searchEmail="SELECT * from `session` WHERE `email_id` = '$email'";
             $searchEmailResult=mysqli_query($conn,$searchEmail);
             $searchEmailRow=mysqli_num_rows($searchEmailResult);
-            if ($searchEmailRow==0) {
+            
                 
                 if ($searchEmailRow==0) {
 
@@ -37,7 +39,6 @@
     
                     if(mail($reciver_mail,$subject,$body,$sender_mail)){
 
-                        session_start();
                         $_SESSION['username']=$full_name;
 
                         if ($imageError==0) {
@@ -55,18 +56,17 @@
                         echo'<script>alert("Check your mail to verify your account");</script>';
                     }else{
                         
-                        echo'<script>alert("Please Input Valid Email");</script>';
+                    $emailExist=true;
+                    $_SESSION['alert']="invalid email";
+                        
                     }
                 
                 }else{
-                    echo"email already taken";
-                    echo'<script>alert("email already taken")</script>';
+                    
+                    $emailExist=true;
+                    $_SESSION['alert']="email already taken";
                 }
 
-
-            }
-            
-           
         }
 
     }
@@ -96,7 +96,16 @@
                         <input type="text" placeholder="&#xf007; Full Name" id="full_name" name=full_name>
                         <div id="alertname" style="color:red;background-color:yellow;"></div>
                         <input type="text" placeholder="&#xf199; Email ID" id="email"  name="email">
-                        <div id="alertemail" style="color:red;background-color:yellow;"></div>
+                        <div id="alertemail" style="color:red;background-color:yellow;">
+                        <?php  
+
+                        
+                        if ($emailExist==true) {
+                            echo$_SESSION['alert'];
+                        }
+                        ?>
+
+                        </div>
                         <input type="password" placeholder="&#xf26e; password" id="password" name="password">
                         <div id="alertpassword" style="color:red;background-color:yellow;"></div>
                         <input type="password" placeholder="&#xf26e; comfirm password" id="cpassword" name="cpassword">
