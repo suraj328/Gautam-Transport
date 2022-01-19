@@ -6,12 +6,22 @@
         $password=$_POST['password'];
         $cpassword=$_POST['cpassword'];
         $image = $_FILES['profile'];
-        echo"runing";
+
+        $imageName=$image['name'];
+        $imagePath=$image['tmp_name'];
+        $imageError=$image['error'];
+
+
+
+        
+        
+        
 
         
         if($password==$cpassword){
             $hashpassword=password_hash($password,PASSWORD_BCRYPT);
-            $token=bin2hex(5);
+            $token=bin2hex(random_bytes(5));
+            echo$token;
 
             $searchEmail="SELECT * from `session` WHERE `email_id` = '$email'";
             $searchEmailResult=mysqli_query($conn,$searchEmail);
@@ -19,22 +29,38 @@
             if ($searchEmailRow==0) {
                 
                 if ($searchEmailRow==0) {
+
                     $reciver_mail=$email;
                     $subject="Verify Your account by Gautam-Transport";
-                    $body="Hello,$full_name Click on this link to verify your account:<br>";
+                    $body="Hello,$full_name Click on this link to verify your account:<br> http://localhost/Gautam-Transport/verifyAccount.php?token=$token";
                     $sender_mail="From:shahsuraj328@gamil.com";
     
                     if(mail($reciver_mail,$subject,$body,$sender_mail)){
-    
-                        
-    
-                        echo'<script >alert("mail sent sucessfully");</script>';
-                        echo"sent";
+
+                        session_start();
+                        $_SESSION['username']=$full_name;
+
+                        if ($imageError==0) {
+                            $distFolder='UserProfile/'.$imageName;
+                            move_uploaded_file($imagePath,$distFolder);
+                            $insertQuery="INSERT INTO `session`(`full_name`,`email_id`,`password`,`profile`,`token`,`status`) VALUES('$full_name','$email','$hashpassword','$distFolder','$token','not_verify')";
+
+                            if(mysqli_query($conn,$insertQuery)){
+                                echo"inserted sucessfully";
+                            }else{
+                                echo"not inserted";
+                            }
+
+                        }
+                        echo'<script>alert("Check your mail to verify your account");</script>';
                     }else{
-                        echo"failed";
-                        echo'<script>alert("failed to sedns mail");</script>';
+                        
+                        echo'<script>alert("Please Input Valid Email");</script>';
                     }
                 
+                }else{
+                    echo"email already taken";
+                    echo'<script>alert("email already taken")</script>';
                 }
 
 
@@ -65,7 +91,7 @@
         <div class="login-background display-grid">
             <div class="inner-div form-background">
                 <p id="Gautam">Gautam Transport</p>
-                <form action="#" method="POST" id="sign-up" enctype="multipart/form-data" onsubmit="event.preventDefault();validateForm();">
+                <form action="http://localhost/Gautam-Transport/gautam-signup.php" method="POST" id="sign-up" enctype="multipart/form-data" onsubmit="event.preventDefault();validateForm();">
                     <div class="input-block">
                         <input type="text" placeholder="&#xf007; Full Name" id="full_name" name=full_name>
                         <div id="alertname" style="color:red;background-color:yellow;"></div>
@@ -79,7 +105,7 @@
                         <input type="file" id="profile" name="profile">
                         <div id="alertfile" style="color:red;background-color:yellow;"></div>
                         
-                        <input type="submit" id="signup-submit">
+                        <input type="submit" value="sign up" id="signup-submit">
                     </div>
             </div>
             </form>
