@@ -1,5 +1,49 @@
 <?php
     include 'Backend/dbconfig.php';
+    if (!empty($_POST['full_name']) || !empty($_POST['email']) || !empty($_POST['password']) || !empty($_POST['cpassword']) || !empty($_FILES['profile']) ) {
+        $full_name=strtolower(trim($_POST['full_name']));
+        $email=strtolower(trim($_POST['email']));
+        $password=$_POST['password'];
+        $cpassword=$_POST['cpassword'];
+        $image = $_FILES['profile'];
+        echo"runing";
+
+        
+        if($password==$cpassword){
+            $hashpassword=password_hash($password,PASSWORD_BCRYPT);
+            $token=bin2hex(5);
+
+            $searchEmail="SELECT * from `session` WHERE `email_id` = '$email'";
+            $searchEmailResult=mysqli_query($conn,$searchEmail);
+            $searchEmailRow=mysqli_num_rows($searchEmailResult);
+            if ($searchEmailRow==0) {
+                
+                if ($searchEmailRow==0) {
+                    $reciver_mail=$email;
+                    $subject="Verify Your account by Gautam-Transport";
+                    $body="Hello,$full_name Click on this link to verify your account:<br>";
+                    $sender_mail="From:shahsuraj328@gamil.com";
+    
+                    if(mail($reciver_mail,$subject,$body,$sender_mail)){
+    
+                        
+    
+                        echo'<script >alert("mail sent sucessfully");</script>';
+                        echo"sent";
+                    }else{
+                        echo"failed";
+                        echo'<script>alert("failed to sedns mail");</script>';
+                    }
+                
+                }
+
+
+            }
+            
+           
+        }
+
+    }
 
 ?>
 <!DOCTYPE html>
@@ -21,11 +65,11 @@
         <div class="login-background display-grid">
             <div class="inner-div form-background">
                 <p id="Gautam">Gautam Transport</p>
-                <form action="#" method="POST" id="sign-up" onsubmit="event.preventDefault();validateForm();">
+                <form action="#" method="POST" id="sign-up" enctype="multipart/form-data" onsubmit="event.preventDefault();validateForm();">
                     <div class="input-block">
                         <input type="text" placeholder="&#xf007; Full Name" id="full_name" name=full_name>
                         <div id="alertname" style="color:red;background-color:yellow;"></div>
-                        <input type="email" placeholder="&#xf199; Email ID" id="email"  name="email">
+                        <input type="text" placeholder="&#xf199; Email ID" id="email"  name="email">
                         <div id="alertemail" style="color:red;background-color:yellow;"></div>
                         <input type="password" placeholder="&#xf26e; password" id="password" name="password">
                         <div id="alertpassword" style="color:red;background-color:yellow;"></div>

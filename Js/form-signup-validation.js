@@ -1,10 +1,4 @@
 function validateForm() {
-    var alertname = document.getElementById("alertname");
-    var alertemail = document.getElementById("alertemail");
-    var alertpassword = document.getElementById("alertpassword");
-    var alertcpassword = document.getElementById("alertcpassword");
-    var alertfile = document.getElementById("alertfile");
-
 
     var f_name = document.getElementById("full_name").value;
     var email = document.getElementById("email").value;
@@ -23,11 +17,22 @@ function validateForm() {
     if (password == '') {
         document.getElementById("alertpassword").innerText = "password cannot be empty";
         return false;
+    } else {
+
+        if (password.length < 8) {
+            document.getElementById("alertpassword").innerText = "password should be greater than 8 character";
+
+        }
     }
 
     if (cpassword == '') {
         document.getElementById("alertcpassword").innerText = "comfirm password cannt be empty";
         return false;
+    } else {
+        if (cpassword.length < 8) {
+            document.getElementById("alertcpassword").innerText = "password should be greater than 8 character";
+
+        }
     }
     if (password != cpassword) {
         alert("password and comfirm password do notmatched");
