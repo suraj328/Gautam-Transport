@@ -4,7 +4,7 @@
     $Exist=false;
     $Existimg=false;
     
-    if (!empty($_POST['full_name']) || !empty($_POST['email']) || !empty($_POST['password']) || !empty($_POST['cpassword']) || !empty($_FILES['profile']) ) {
+    if (!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['cpassword']) && !empty($_FILES['profile']) ) {
         
         $full_name=strtolower(trim($_POST['full_name']));
         $email=strtolower(trim($_POST['email']));

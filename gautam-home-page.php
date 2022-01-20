@@ -1,3 +1,14 @@
+
+<?php
+
+    session_start();
+    if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
+        header("location:Gautam-Transport-login.php");
+    }
+
+    ?>
+    
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gautam-Transport</title>
     <!-- css link -->
     <link rel="stylesheet" href="gautam-home-navbar.css">
 
@@ -26,7 +37,7 @@
 <body>
     <header>
         <nav class="navbar">
-            <span><img src="pic.jpg" alt="load.."></span>
+            <span><img src="<?php echo$_SESSION['profile-image']; ?> " alt="load.."></span>
 
             <span class="transport-text">Gautam Transport</span>
             <span class="right-bar"><i onclick="bar();" class="fas fa-bars bar-icon"></i></span>
@@ -41,7 +52,7 @@
         <select name="session" id="session">
             <option value="nochange" selected disabled></option>
             <option value="https://www.youtube.com">Change Pw</option></a>
-            <option value="gautam-signup.html">Log-Out</option>
+            <option value="gautam-logout.php">Log-Out</option>
         </select>
         </span>
         </nav>
@@ -60,4 +71,7 @@
 </body>
 <script src="js/gautam-home-navbar-js.js"></script>
 
+        <script>
+            alert("welcome <?php echo$_SESSION['full-name']." to gautam transport"; ?>");
+        </script>
 </html>
