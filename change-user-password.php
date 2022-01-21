@@ -109,7 +109,7 @@
         <br>
         <input type="text" name="cnewpassword" placeholder="Comfirm New Password">
         <br>
-        <input type="submit">
+        <input type="submit" value="change password">
 
     </form>
 </body>
