@@ -157,7 +157,7 @@
                             ?>
                         </div>
                         <button type="submit" id="login-submit">Login <i class="fas fa-sign-in-alt"></i></button>
-                        <button class="forget-password"><a href="#">forget password</a></button>
+                        <button class="forget-password"><a href="gautam-forget-password.php">forget password</a></button>
                     </div>
             </div>
             </form>
