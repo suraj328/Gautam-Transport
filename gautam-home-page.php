@@ -2,6 +2,9 @@
 <?php
 
     session_start();
+
+    
+
     if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
         header("location:Gautam-Transport-login.php");
     }
@@ -51,7 +54,7 @@
         <a href="#">Location</a>
         <select name="session" id="session">
             <option value="nochange" selected disabled></option>
-            <option value="https://www.youtube.com">Change Pw</option></a>
+            <option value="gautam-change-password.php">Change Pw</option></a>
             <option value="gautam-logout.php">Log-Out</option>
         </select>
         </span>
