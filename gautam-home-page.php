@@ -22,6 +22,8 @@
     <title>Gautam-Transport</title>
     <!-- css link -->
     <link rel="stylesheet" href="gautam-home-navbar.css">
+    
+    <link rel="stylesheet" href="gautam-home-body.css">
 
 
     <!-- fontawesome link -->
@@ -59,10 +61,35 @@
         </select>
         </span>
         </nav>
-        <hr style="background-color: #607d8b;height: 5px;border: none;">
     </header>
+    <hr style="background-color: #607d8b;height: 5px;border: none;">
 
     <section id="content" class="body-content">
+    <div class="form">
+            <form action="#">
+                <input style="display: block;" type="file" name="upload-file" id="uploadfile">
+                <input class="upload-submit" type="submit" value="uplaod">
+            </form>
+        </div>
+        <div class="form">
+            <form action="">
+                <input class="search-customer" style="display: block;" type="text" placeholder="Customer Name">
+                <input class="search-submit" type="submit" value="Search">
+            </form>
+        </div>
+        <div class="form">
+            <form action="">
+                <input style="display: block;" type="email" name="email_id" id="email_id" placeholder="Customer Email">
+                <textarea style="display: block;" name="message" placeholder="type here"id="message" cols="24" rows="5"></textarea>
+                <input id="mail-send" type="submit" value="Send">
+            </form>
+        </div>
+        <div class="form">
+            <form action="">
+                <h3>Customer-Request</h3>
+                <input  id="search-request" type="submit" value="Search-Customer-Request">
+            </form>
+        </div>
 
     </section>
     <hr style="background-color: #607d8b;height: 5px;border: none;">

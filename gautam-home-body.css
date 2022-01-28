@@ -1,0 +1,114 @@
+#content {
+    background-color: #607d8bba;
+}
+
+:root {
+    --content-body-bg:rgb(139 160 170 / 25%);
+}
+
+header {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+section div {
+    height: 300px;
+    width: 368px;
+    border-radius: 31px;
+    background-color: #607d8ba3;
+    box-shadow: -1px 1px 18px 5px #eee;
+}
+
+#content {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 329px 320px;
+    grid-template-columns: 619px 402px;
+    flex-wrap: nowrap;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+#uploadfile {
+    padding: 34px;
+    background-color: var(--content-body-bg);
+    margin: 4px;
+    height: 100px;
+    width: 231px;
+    border-radius: 10px;
+    border-bottom: 4px solid burlywood;
+}
+
+.upload-submit {
+    display: block;
+    width: 231px;
+    margin: 4px;
+    border: none;
+    outline: none;
+    font-size: larger;
+    background-color: var(--content-body-bg);
+    border-bottom: 4px solid burlywood;
+}
+
+.search-customer {
+    outline: none;
+    border: none;
+    margin: 4px;
+    background-color:var(--content-body-bg);
+    height: 60px;
+    width: 200px;
+    font-size: 25px;
+    border-bottom: 4px solid burlywood;
+}
+
+.search-submit {
+    outline: none;
+    border: none;
+    margin: 4px;
+    background-color:var(--content-body-bg);
+    width: 200px;
+    font-size: 25px;
+    border-bottom: 4px solid burlywood;
+}
+
+#email_id,
+#message,
+#mail-send {
+    font-size: larger;
+    margin: 5px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: var(--content-body-bg);
+    border-radius: 10px;
+    border-bottom: 4px solid burlywood;
+}
+
+#email_id {
+    width: 245px;
+    
+
+}
+
+#search-request {
+    background-color: var(--content-body-bg);
+    margin: 5px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 4px solid burlywood;
+    font-size: large;
+}
+#mail-send{
+    width: 245px;
+}
