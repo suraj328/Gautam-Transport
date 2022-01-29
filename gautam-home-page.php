@@ -47,8 +47,8 @@
             <span class="transport-text">Gautam Transport</span>
             <span class="right-bar"><i onclick="bar();" class="fas fa-bars bar-icon"></i></span>
             <span class="search-box">
-            <input class="search input" type="Search" placeholder="&#xf002; Search">
-            <button class="search search-btn" type="submit"><i class="fal fa-search"></i></button>
+            <input class="search input" type="Search" placeholder="&#xf002; Search" disabled>
+            <button class="search search-btn" type="submit" disabled><i class="fal fa-search"></i></button>
         </span>
             <span id="right-content">
         <a class="active"href="#">Home</a>
