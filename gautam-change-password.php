@@ -50,6 +50,8 @@ if($_SESSION['loggedin']==true || isset($_SESSION['loggedin'])){
 
 
 
+    }else{
+        // echo '<script>alert("Any field cannt be empty");</script> ';
     }
 
 
@@ -59,26 +61,6 @@ if($_SESSION['loggedin']==true || isset($_SESSION['loggedin'])){
 
 ?>
 
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>change-password</title>
-</head>
-<body>
-    <div>
-        <form action="gautam-change-password.php" method="POST">
-            <input type="text" placeholder="old password" name="oldpassword"><br>
-            <input type="text" placeholder="new password" name="newpassword" ><br>
-            <input type="text" placeholder="comfirm password" name="cnewpassword"><br>
-            <input type="submit" value="change-password"><br>
-        </form>
-    </div>
-</body>
-</html> -->
 
 
 
@@ -110,19 +92,23 @@ if($_SESSION['loggedin']==true || isset($_SESSION['loggedin'])){
             display:flex;
             align-items:center;
             justify-content:center;
+            
         }
         section div{
-            display:grid;
-            justify-content:center;
-            grid-template-row:200px;
-            grid-template-column:200px;
-            background-color:#607d8bba;
-            height:40vh;
-            width:30vw;
+            width:30%;
         }
         section div form input{
-                width:60%;
+                background-color:#fff0;    
+                display: block;
+                width:100%;
+                padding:10px;
+                outline:none;
+                font-size:larger;
+                color:black;
+                border:none;
+                border-bottom:4px solid #607d8bd4;
         }
+
     </style>
 </head>
 
@@ -144,8 +130,8 @@ if($_SESSION['loggedin']==true || isset($_SESSION['loggedin'])){
                 <a href="#">Location</a>
                 <select name="session" id="session">
                     <option value="nochange" selected disabled></option>
-                    <option value="https://www.youtube.com">Change Pw</option></a>
-                    <option value="gautam-signup.html">Log-Out</option>
+                    <option value="gautam-change-password.php">Change Pw</option></a>
+                    <option value="gautam-logout.php">Log-Out</option>
                 </select>
             </span>
         </nav>
@@ -155,10 +141,10 @@ if($_SESSION['loggedin']==true || isset($_SESSION['loggedin'])){
     <section id="content" class="body-content">
     <div>
         <form action="gautam-change-password.php" method="POST">
-            <input type="text" placeholder="old password" name="oldpassword"><br>
-            <input type="text" placeholder="new password" name="newpassword" ><br>
-            <input type="text" placeholder="comfirm password" name="cnewpassword"><br>
-            <input type="submit" value="change-password"><br>
+            <input type="text" placeholder="Old password" name="oldpassword">
+            <input type="password" placeholder="new password" name="newpassword" >
+            <input type="password" placeholder="comfirm password" name="cnewpassword">
+            <input style="background-color:#607d8bd4;" type="submit" value="change-password">
         </form>
     </div>
     </section>
