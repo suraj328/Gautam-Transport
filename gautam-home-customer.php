@@ -82,7 +82,7 @@ session_start();
             <input style="color:green;" class="search-submit" type="submit" value="Check">
         </form>
     </div>
-    <div class="form">
+    <div class="form email-div">
         <form action="">
             <h1>Type Your Mail Here!!</h1>
             <textarea style="display: block; color:green;" name="message"  placeholder="type here"id="message" cols="24" rows="5"></textarea>

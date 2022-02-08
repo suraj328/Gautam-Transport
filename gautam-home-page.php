@@ -77,7 +77,7 @@
                 <input class="search-submit" type="submit" value="Search">
             </form>
         </div>
-        <div class="form">
+        <div class="form email-div">
             <form action="">
                 <input style="display: block;" type="email" name="email_id" id="email_id" placeholder="Customer Email">
                 <textarea style="display: block;" name="message" placeholder="type here"id="message" cols="24" rows="5"></textarea>
@@ -95,7 +95,7 @@
     <hr style="background-color: #607d8b;height: 5px;border: none;">
     <footer id="footer">
 
-        <a href="tel:+9779809603594">Call</a> <span>Gautam Transport</span>
+        <!-- <a href="tel:+9779809603594">Call</a>--> <span>Gautam Transport</span> 
 
     </footer>
 </body>

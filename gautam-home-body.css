@@ -112,3 +112,60 @@ section div {
 #mail-send{
     width: 245px;
 }
+
+@media (max-width:1060px) {
+
+   
+    #content {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-rows: 336px 320px;
+	grid-template-columns: 550px 398px;
+	flex-wrap: nowrap;
+}
+
+
+}
+@media (max-width:991px) {
+
+   
+    #content {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-rows: 409px 360px;
+    grid-template-columns: 453px 361px;
+	flex-wrap: nowrap;
+    }
+}
+@media (max-width:831px) {
+
+   
+    #content {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+    grid-template-rows: 249px;
+    grid-template-columns: 244px;
+	flex-wrap: nowrap;
+    }
+    section div {
+        height: 150px;
+        width: 150px;
+        margin: 5px;
+    }
+    .upload-submit,#uploadfile,.search-submit,.search-customer,#email_id,
+    #message,
+    #mail-send,#search-request{
+        font-size: small;
+        width: 100px;
+    }
+    .email-div{
+        height: 200px;
+    }
+    div h1,h3{
+        font-size: small;
+    }
+    
+}
