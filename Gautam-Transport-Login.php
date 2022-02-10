@@ -50,8 +50,16 @@
                                 $updateTokenQuery="UPDATE `session` SET `token`='$updatedToken' where `email_id` = '$email' ";
                                 mysqli_query($conn,$updateTokenQuery);
 
+                                $positionQuery = "SELECT `position`,`email_id` FROM `session` WHERE `email_id`='$email' AND `position`='admin'";
+                                if ($positionConnQuerry = mysqli_query($conn,$positionQuery)) {
+                                    $positionQuerryresult = mysqli_num_rows($positionConnQuerry);
+                                    if ($positionQuerryresult==1) {
+                                        header("location:gautam-home-page.php");
+                                    }else{
+                                        header("location:gautam-home-customer.php");
+                                    }
+                                }
 
-                                header("location:gautam-home-page.php");
                             }else{
                                 $incorrectPassword=true;
                                 $_SESSION['incorrect-password']="Incorrect Password";

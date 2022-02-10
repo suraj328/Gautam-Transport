@@ -45,7 +45,7 @@
                         if ($imageError==0) {
                             $distFolder='UserProfile/'.$imageName;
                             move_uploaded_file($imagePath,$distFolder);
-                            $insertQuery="INSERT INTO `session`(`full_name`,`email_id`,`password`,`profile`,`token`,`status`) VALUES('$full_name','$email','$hashpassword','$distFolder','$token','not_verify')";
+                            $insertQuery="INSERT INTO `session`(`full_name`,`email_id`,`password`,`profile`,`token`,`status`,`position`) VALUES('$full_name','$email','$hashpassword','$distFolder','$token','not_verify','customer')";
 
                             if(mysqli_query($conn,$insertQuery)){
                                 echo"inserted sucessfully";
