@@ -48,9 +48,9 @@
                             $insertQuery="INSERT INTO `session`(`full_name`,`email_id`,`password`,`profile`,`token`,`status`,`position`) VALUES('$full_name','$email','$hashpassword','$distFolder','$token','not_verify','customer')";
 
                             if(mysqli_query($conn,$insertQuery)){
-                                echo"inserted sucessfully";
+                                echo'<script>alert("Your account created sucessfully");</script>';
                             }else{
-                                echo"not inserted";
+                                echo'<script>alert("Account creation failed");</script>';
                             }
 
                         }else{
