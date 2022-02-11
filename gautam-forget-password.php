@@ -24,7 +24,6 @@
                 
                 $_SESSION['forget']= true;
 
-
                 while($rowResult=mysqli_fetch_assoc($checkEmailQuery)){
 
                 
