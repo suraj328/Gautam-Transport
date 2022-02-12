@@ -40,6 +40,9 @@ session_start();
         font-family: 'Luxurious Roman', cursive;
         color:orange;
     }
+    ::placeholder{
+        color:black;
+    }
 </style>
 </head>
     

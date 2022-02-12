@@ -80,17 +80,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reset-password</title>
+    <link rel="stylesheet" href="change-user-password.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="top">
+        <h1 id="top"><marquee behavior="alternate" direction="right">Gautam Transport</marquee></h1>
+    </div>
+    
+    <section id="reset-form">
     <form action="http://localhost/Gautam-Transport/change-user-password.php?getToken=<?php echo$reciveToken;  ?>"   method="POST">
 
-        <input type="text" name="newpassword" placeholder="New Password"> 
-        <br>
-        <input type="text" name="cnewpassword" placeholder="Comfirm New Password">
-        <br>
-        <input type="submit" value="change password">
+            <input type="password" name="newpassword" placeholder="New Password"> 
+            
+            <input type="password" name="cnewpassword" placeholder="Comfirm New Password">
+            
+            <input id="submit" type="submit" value="change password">
 
-    </form>
+        </form>
+    </section>
 </body>
 </html>
 

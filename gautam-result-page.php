@@ -5,9 +5,10 @@ session_start();
 
 
 
-if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
+if($_SESSION['loggedin']!=true){
     header("location:Gautam-Transport-login.php");
 }
+
 
 ?>
 

@@ -1,13 +1,34 @@
 
 <?php
-
+    
     session_start();
 
     
 
     if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
         header("location:Gautam-Transport-login.php");
+        
     }
+    $alert=false;
+    
+
+
+    include 'Backend/dbconfig.php';
+
+    if(!empty($_POST['itemName']) && !empty($_POST['start_address']) && !empty($_POST['dest_address'])){
+        $itemName = trim($_POST['itemName']);
+        $start_address = trim($_POST['start_address']);
+        $dest_address = trim($_POST['dest_address']);
+
+        $itemQuery = "INSERT INTO `gautam_transport_item`(`item_name`,`upload_dates`,`beginning_address`,`destination_address`) VALUES('$itemName',CURDATE(),'$start_address','$dest_address') ";
+        if(mysqli_query($conn,$itemQuery)){
+            $alert=true;
+          
+        }
+    }
+
+
+    
 
     ?>
     
@@ -35,6 +56,16 @@
     <style>
         #content {
             background-color: #607d8bba;
+        }
+        .item{
+            margin: 5px;
+            padding: 5px;
+            display:flex;
+            width:100%;
+            font-size:larger;
+        }
+        ::placeholder{
+            color:black;
         }
     </style>
 </head>
@@ -65,10 +96,26 @@
     <hr style="background-color: #607d8b;height: 5px;border: none;">
 
     <section id="content" class="body-content">
+        
     <div class="form">
-            <form action="#">
-                <input style="display: block;" type="file" name="upload-file" id="uploadfile">
-                <input class="upload-submit" type="submit" value="uplaod">
+    <span>
+            <?php
+            $msg1="data inserted sucessfully";
+            
+                if ($alert) {
+                echo$msg1;
+                    
+                }
+            ?>
+        </span>
+            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+                <!-- <input style="display: block;" type="file" name="upload-file" id="uploadfile"> -->
+
+                <input style="display:block;" type="text" class="item" placeholder="Your Item Name" name='itemName'>
+                <input style="display:block;" type="text" class="item" placeholder="From:" name="start_address">
+                <input style="display:block;" type="text" class="item" placeholder="To:" name="dest_address">
+
+                <input class="upload-submit" type="submit" value="ADD" name="submitItem">
             </form>
         </div>
         <div class="form">
