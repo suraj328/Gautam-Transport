@@ -5,9 +5,9 @@ session_start();
 
 
 
-// if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
-//     header("location:Gautam-Transport-login.php");
-// }
+if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
+    header("location:Gautam-Transport-login.php");
+}
 
 ?>
 
@@ -59,8 +59,8 @@ session_start();
     </span>
         <span id="right-content">
     <a class="active"href="#">Home</a>
-    <a href="#">Contact</a>
-    <a href="#">Location</a>
+    <a href="tel:+9779809603594">Contact</a>
+    <a href="https://www.google.com/maps/dir/26.9834942,85.8913698/XVRQ%2BHP9+Gautam+Dhuwanii+sewa,+Bardibas+45701/@26.9869717,85.8867008,16z/data=!3m1!4b1!4m17!1m6!3m5!1s0x39ec736141511f39:0x2e8be892dc0bb878!2sGautam+Dhuwanii+sewa!8m2!3d26.9914141!4d85.8893788!4m9!1m1!4e1!1m5!1m1!1s0x39ec736141511f39:0x2e8be892dc0bb878!2m2!1d85.8893788!2d26.9914141!3e0">Location</a>
     <select name="session" id="session">
         <option value="nochange" selected disabled></option>
         <option value="gautam-change-password.php">Change Pw</option></a>
@@ -73,7 +73,7 @@ session_start();
 
 <section id="content" class="body-content">
 <div class="form">
-        <form action="">
+        <form action="gautam-result-page.php">
             <h1>Today Available item</h1>
             <input style="color:green;" class="upload-submit" type="submit" value="Show Available items ">
         </form>

@@ -15,6 +15,8 @@
 
     include 'Backend/dbconfig.php';
 
+    // for recording item to gautam_transport_item
+
     if(!empty($_POST['itemName']) && !empty($_POST['start_address']) && !empty($_POST['dest_address'])){
         $itemName = trim($_POST['itemName']);
         $start_address = trim($_POST['start_address']);
@@ -27,8 +29,55 @@
         }
     }
 
+    // for mail
+    $invalidMail=false;
+    $mailSuccess = false;
+    if(!empty($_POST['email_id']) && !empty($_POST['message'] )){
+        $email = trim($_POST['email_id']);
+        $messsage = trim($_POST['message']);
 
+        include 'Backend/dbconfig.php';
+        $checkEmail = "SELECT `email_id` FROM `session` WHERE `email_id`= '$email'";
+        $checkEmailConn = mysqli_query($conn,$checkEmail);
+        $checkEmailRow = mysqli_num_rows($checkEmailConn);
+
+        if($checkEmailRow == 1){
+            echo"email exist";
+            $reciverMail = $email;
+            $subject = "From Gautam Transport";
+            $body =$messsage;
+            $sender_mail="From:shahsuraj328@gamil.com";
+
+            if(mail($reciverMail,$subject,$body,$sender_mail)){
+                $mailSuccess = true;
+            }
+
+        }else{
+            $invalidMail=true;
+        }
+
+
+
+    }
     
+    // search customer
+    $showDiv = false;
+    $noResult = false;
+    if(!empty($_POST['customer_name'])){
+        // echo"running";
+        $name=trim($_POST['customer_name']);
+        $searchCustomer = "SELECT * FROM `session` WHERE `full_name` LIKE '$name%'";
+        $searchConn=mysqli_query($conn,$searchCustomer);
+        $searchRow=mysqli_num_rows($searchConn);
+        if($searchRow>0){
+
+            $showDiv = true;
+        }else{
+            $noResult = true;
+        }
+    }
+
+
 
     ?>
     
@@ -67,6 +116,36 @@
         ::placeholder{
             color:black;
         }
+        #customer-search{
+            position:absolute;
+            background-color: #465e74;
+            /* height:50vh; */
+            /* width:50%; */
+            top: 20%;
+            left: 18%;
+            border-radius:20px;
+            
+        }
+        .cross{
+            float:right;
+            margin-right:10%;
+        }
+        #search-table{
+            margin:auto;
+        }
+        th{
+        color:black;
+        font-size:larger;
+        background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    }
+    td{
+        padding: 5px;
+        text-align:center;
+        font-size:large;
+        background: linear-gradient(0.25turn,#ff003b94, #607d8b, #f6593ca3);
+        color:black;
+        
+    }
     </style>
 </head>
 
@@ -83,8 +162,8 @@
         </span>
             <span id="right-content">
         <a class="active"href="#">Home</a>
-        <a href="#">Contact</a>
-        <a href="#">Location</a>
+        <a href="tel:+9779809603594">Contact</a>
+        <a href="https://www.google.com/maps/dir/26.9834942,85.8913698/XVRQ%2BHP9+Gautam+Dhuwanii+sewa,+Bardibas+45701/@26.9869717,85.8867008,16z/data=!3m1!4b1!4m17!1m6!3m5!1s0x39ec736141511f39:0x2e8be892dc0bb878!2sGautam+Dhuwanii+sewa!8m2!3d26.9914141!4d85.8893788!4m9!1m1!4e1!1m5!1m1!1s0x39ec736141511f39:0x2e8be892dc0bb878!2m2!1d85.8893788!2d26.9914141!3e0">Location</a>
         <select name="session" id="session">
             <option value="nochange" selected disabled></option>
             <option value="gautam-change-password.php">Change Pw</option></a>
@@ -94,7 +173,52 @@
         </nav>
     </header>
     <hr style="background-color: #607d8b;height: 5px;border: none;">
+    <?php
+    if($showDiv){
+    ?>
+        <div id="customer-search">
+                <div  class="cross" onclick="hide()">
+                hide
+                </div>
+                <br>
+                <table border="1px" id="search-table">
+                    <thead>
+                        <th>User_id</th>
+                        <th>Email</th>
+                        <th>Full Name</th>
+                        <th>profile</th>
+                    </thead>
+                    <?php
+                    while($result = mysqli_fetch_array($searchConn)){
+                        ?>
+                     <tbody>
+                        <tr>
+                            <td><?php echo$result['user_no'] ;?></td>
+                            <td><?php echo$result['full_name']  ;?></td>
+                            <td><?php echo$result['email_id'] ;?></td>
+                            <td><img src="<?php  echo$result['profile'] ;?>" alt="" height="15px" width="200px"><?php  echo$result['profile'] ;?></td>
+                        </tr>
+                     </tbody>
+                        
+                <?php
+                    }
+                    ?>
+                        
 
+                </table>
+                <script>
+                    function hide(){
+
+                        document.getElementById('customer-search').style.display='none';
+                    }
+                    
+                </script>
+            </div>
+    <?php
+    }
+    ?>
+
+    
     <section id="content" class="body-content">
         
     <div class="form">
@@ -119,16 +243,31 @@
             </form>
         </div>
         <div class="form">
-            <form action="">
-                <input class="search-customer" style="display: block;" type="text" placeholder="Customer Name">
+            <span>
+                <?php  echo$noResult?"No Result Found":"";  ?>
+            </span>
+            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+                <input class="search-customer" style="display: block;" type="text" placeholder="Customer Name" name="customer_name">
                 <input class="search-submit" type="submit" value="Search">
             </form>
         </div>
         <div class="form email-div">
-            <form action="">
+            <span>
+                <p>
+                    <?php
+                        if($invalidMail){
+                            echo'<h4>Invalid Customer Mail</h4>';
+                        }else if($mailSuccess){
+                            echo'<h4>MaiL Sent Success fully</h4>';
+                        }
+                    ?>
+                </p>
+            </span>
+            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
                 <input style="display: block;" type="email" name="email_id" id="email_id" placeholder="Customer Email">
                 <textarea style="display: block;" name="message" placeholder="type here"id="message" cols="24" rows="5"></textarea>
-                <input id="mail-send" type="submit" value="Send">
+                <input id="mail-send" type="submit" name="email_send" value="Send">
+                
             </form>
         </div>
         <div class="form">
@@ -148,7 +287,5 @@
 </body>
 <script src="js/gautam-home-navbar-js.js"></script>
 
-        <script>
-            alert("welcome <?php echo$_SESSION['full-name']." to gautam transport"; ?>");
-        </script>
+        
 </html>

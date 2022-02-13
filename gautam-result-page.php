@@ -2,7 +2,7 @@
 <?php
 
 session_start();
-
+include 'Backend/dbconfig.php';
 
 
 if($_SESSION['loggedin']!=true){
@@ -24,7 +24,7 @@ if($_SESSION['loggedin']!=true){
 <!-- css link -->
 <link rel="stylesheet" href="gautam-home-navbar.css">
 
-<link rel="stylesheet" href="gautam-home-body.css">
+
 
 
 <!-- fontawesome link -->
@@ -36,6 +36,33 @@ if($_SESSION['loggedin']!=true){
 <style>
     #content {
         background-color: #607d8bba;
+    }
+    .table-view{
+        background-color: red;
+        flex-direction:column;
+        margin: auto;
+        width:50%;
+        box-shadow:1px 1px 10px red;
+        background-color: #607d8bba;
+        border-radius:10px;
+    }
+    .empty{
+        height: 35px;
+    }
+    th{
+        color:black;
+        font-size:larger;
+        background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    }
+    td{
+        width: 300px;
+        height:20px;
+        padding: 5px;
+        text-align:center;
+        font-size:large;
+        background: linear-gradient(0.25turn,#ff003b94, #607d8b, #f6593ca3);
+        color:black;
+        
     }
 </style>
 </head>
@@ -65,8 +92,51 @@ if($_SESSION['loggedin']!=true){
 </header>
 <hr style="background-color: #607d8b;height: 5px;border: none;">
 
-<section id="content" class="body-content">
+<section id="content" >
+    <div class="empty"></div>
+    <table border="1" class="table-view">
+                    <thead>
+                        <th>Item_id</th>
+                        <th>Item_name</th>
+                        <th>begining_address</th>
+                        <th>destination_address</th>
+                        <th>Contact</th>
+                        <th>mail</th>
+                    </thead>
+    <?php
+        include 'Backend/dbconfig.php';
+        $itemViewQuerry = "SELECT `item_id`,`item_name`,`beginning_address`, `destination_address` FROM `gautam_transport_item`WHERE `upload_dates`=CURDATE()";
+        $itemConnQuerry = mysqli_query($conn,$itemViewQuerry);
+        $itemRowQuerry = mysqli_num_rows($itemConnQuerry);
+        
+        if ($itemRowQuerry !=0) {
+            
+            while($result = mysqli_fetch_array($itemConnQuerry)){
+                ?>
 
+                    
+               
+                    <tbody>
+                        <tr>
+                            <td> <?php echo$result['item_id'] ; ?></td>
+                            <td> <?php echo$result['item_name'];?></td>
+                            <td> <?php echo$result['beginning_address'];?></td>
+                            <td> <?php echo$result['destination_address'];?></td>
+                            <td><a href="tel:+9779809603594">Call   </a></td>
+                            <td>mail</a></td>
+                        </tr>
+                    </tbody>
+                    
+                    
+            <?Php } 
+
+        }else{
+            echo '<h1>No Item are Available</h1>';
+        }
+    ?>
+</table>
+
+         
 
 </section>
 <hr style="background-color: #607d8b;height: 5px;border: none;">
