@@ -9,7 +9,35 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
     header("location:Gautam-Transport-login.php");
 }
 
+// maill
+    
+    $mailSuccess=false;
+    $unsendMail = false;
+    if(!empty($_POST['c_message'])){
+        $email = "bca190620_suraj@achsnepal.edu.np";
+        $messsage = trim($_POST['c_message']);
+
+        
+
+            
+            $reciverMail = $email;
+            $subject = "From Gautam Transport";
+            $body =$messsage;
+            $sender_mail="From:shahsuraj328@gamil.com";
+
+            if(mail($reciverMail,$subject,$body,$sender_mail)){
+                $mailSuccess = true;
+            }else{
+                $unsendMail = true;
+            }
+
+        
+
+    }
+
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -86,12 +114,17 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
         </form>
     </div>
     <div class="form email-div">
-        <form action="">
+        <h4> <?php  echo$mailSuccess?"Mail Sent Sucessfully":"";
+        echo$unsendMail?"Mail have not sent Sucessfully":""; ?></h4>
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
             <h1>Type Your Mail Here!!</h1>
-            <textarea style="display: block; color:green;" name="message"  placeholder="type here"id="message" cols="24" rows="5"></textarea>
-            <input style="color:green;" id="mail-send" type="submit" value="Send">
+            <textarea style="display: block; color:green;" name="c_message"  placeholder="type here"id="message" cols="24" rows="5"></textarea>
+            <input style="color:green;" id="mail-send" type="submit" value="Send"">
         </form>
     </div>
+    
+
+
     <div class="form">
         <form action="">
             <h3>Customer-Request</h3>
@@ -109,7 +142,5 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
 </body>
 <script src="js/gautam-home-navbar-js.js"></script>
 
-    <script>
-        alert("welcome <?php echo$_SESSION['full-name']." to gautam transport"; ?>");
-    </script>
+    
 </html>

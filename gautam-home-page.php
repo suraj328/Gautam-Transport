@@ -56,8 +56,6 @@
             $invalidMail=true;
         }
 
-
-
     }
     
     // search customer

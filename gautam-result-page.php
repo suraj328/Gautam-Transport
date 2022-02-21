@@ -8,7 +8,7 @@ include 'Backend/dbconfig.php';
 if($_SESSION['loggedin']!=true){
     header("location:Gautam-Transport-login.php");
 }
-
+// $_SESSION['full-name']
 
 ?>
 
@@ -94,22 +94,26 @@ if($_SESSION['loggedin']!=true){
 
 <section id="content" >
     <div class="empty"></div>
+    
     <table border="1" class="table-view">
-                    <thead>
-                        <th>Item_id</th>
-                        <th>Item_name</th>
-                        <th>begining_address</th>
-                        <th>destination_address</th>
-                        <th>Contact</th>
-                        <th>mail</th>
-                    </thead>
+        <thead>
+            <th>Item_id</th>
+            <th>Item_name</th>
+            <th>begining_address</th>
+            <th>destination_address</th>
+            <th>Contact</th>
+            <th>mail</th>
+        </thead>
+    
     <?php
         include 'Backend/dbconfig.php';
+        $showHead=false;
         $itemViewQuerry = "SELECT `item_id`,`item_name`,`beginning_address`, `destination_address` FROM `gautam_transport_item`WHERE `upload_dates`=CURDATE()";
         $itemConnQuerry = mysqli_query($conn,$itemViewQuerry);
         $itemRowQuerry = mysqli_num_rows($itemConnQuerry);
         
         if ($itemRowQuerry !=0) {
+            $showHead=true;
             
             while($result = mysqli_fetch_array($itemConnQuerry)){
                 ?>
@@ -122,7 +126,7 @@ if($_SESSION['loggedin']!=true){
                             <td> <?php echo$result['item_name'];?></td>
                             <td> <?php echo$result['beginning_address'];?></td>
                             <td> <?php echo$result['destination_address'];?></td>
-                            <td><a href="tel:+9779809603594">Call   </a></td>
+                            <td><a href="tel:+9779809603594">Call</a></td>
                             <td>mail</a></td>
                         </tr>
                     </tbody>
@@ -131,7 +135,7 @@ if($_SESSION['loggedin']!=true){
             <?Php } 
 
         }else{
-            echo '<h1>No Item are Available</h1>';
+            echo '<h1 style="text-align:center;">No Item are Available</h1>';
         }
     ?>
 </table>
@@ -142,13 +146,10 @@ if($_SESSION['loggedin']!=true){
 <hr style="background-color: #607d8b;height: 5px;border: none;">
 <footer id="footer">
 
-    <!-- <a href="tel:+9779809603594">Call</a>--> <span>Gautam Transport</span> 
+     <span>Gautam Transport</span> 
 
 </footer>
 </body>
 <script src="js/gautam-home-navbar-js.js"></script>
 
-    <script>
-        alert("welcome <?php echo$_SESSION['full-name']." to gautam transport"; ?>");
-    </script>
 </html
