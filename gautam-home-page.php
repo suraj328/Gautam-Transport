@@ -25,7 +25,6 @@
         $itemQuery = "INSERT INTO `gautam_transport_item`(`item_name`,`upload_dates`,`beginning_address`,`destination_address`) VALUES('$itemName',CURDATE(),'$start_address','$dest_address') ";
         if(mysqli_query($conn,$itemQuery)){
             $alert=true;
-            mysql_close();
         }
     }
 
@@ -73,7 +72,7 @@
         }else{
             $noResult = true;
         }
-        mysql_close();
+       
     }
 
     $requestDiv = false;
@@ -168,7 +167,7 @@
 <body>
     <header>
         <nav class="navbar">
-            <span><img src="<?php echo$_SESSION['profile-image']; unset($_SESSION['profile-image']); ?> " alt="load.."></span>
+            <span><img src="<?php echo$_SESSION['profile-image'];  ?> " alt="load.."></span>
 
             <span class="transport-text">Gautam Transport</span>
             <span class="right-bar"><i onclick="bar();" class="fas fa-bars bar-icon"></i></span>

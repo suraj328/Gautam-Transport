@@ -46,7 +46,6 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
         $sqli = "INSERT INTO `request_item` values($usernumber,'$username','$email','$item',CURDATE())";
         if(mysqli_query($conn,$sqli)){
             $requestSucess = true;
-            mysql_close();
         }
     }
 
@@ -93,7 +92,7 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
 <body>
 <header>
     <nav class="navbar">
-        <span><img src="<?php echo$_SESSION['profile-image']; unset ($_SESSION['profile-image']);?> " alt="load.."></span>
+        <span><img src="<?php echo$_SESSION['profile-image'];?> " alt="load.."></span>
 
         <span class="transport-text">Gautam Transport</span>
         <span class="right-bar"><i onclick="bar();" class="fas fa-bars bar-icon"></i></span>
