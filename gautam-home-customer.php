@@ -1,7 +1,7 @@
 
 <?php
-
 session_start();
+include 'Backend/dbconfig.php';
 
 
 
@@ -10,7 +10,7 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
 }
 
 // maill
-    
+    $requestSucess = false; 
     $mailSuccess=false;
     $unsendMail = false;
     if(!empty($_POST['c_message'])){
@@ -34,6 +34,22 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
         
 
     }
+    $email = $_SESSION['useremail'];
+    if(!empty($_POST['request-item'])){
+
+        $sql = "SELECT * FROM `session` WHERE `email_id` = '$email'";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result);
+        $item = $_POST['request-item'];
+        $username = $row['full_name'];
+        $usernumber = $row['user_no'];
+        $sqli = "INSERT INTO `request_item` values($usernumber,'$username','$email','$item',CURDATE())";
+        if(mysqli_query($conn,$sqli)){
+            $requestSucess = true;
+            mysql_close();
+        }
+    }
+
 
 
 ?>
@@ -77,7 +93,7 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
 <body>
 <header>
     <nav class="navbar">
-        <span><img src="<?php echo$_SESSION['profile-image']; ?> " alt="load.."></span>
+        <span><img src="<?php echo$_SESSION['profile-image']; unset ($_SESSION['profile-image']);?> " alt="load.."></span>
 
         <span class="transport-text">Gautam Transport</span>
         <span class="right-bar"><i onclick="bar();" class="fas fa-bars bar-icon"></i></span>
@@ -126,9 +142,11 @@ if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
 
 
     <div class="form">
-        <form action="">
-            <h3>Customer-Request</h3>
-            <input style="color:green;"  id="search-request" type="submit" value="Search-Customer-Request">
+        <form action="" method="POST">
+            <h3>Request order</h3>
+            <h3 style="color:green;"><?php echo$requestSucess?"requestproccessed":"" ?><h3>
+            <input type="text" style="color:green;width:50% " id="search-request" placeholder="Request Item" name="request-item">
+            <input style="color:green;"  id="search-request" type="submit" value="request">
         </form>
     </div>
 

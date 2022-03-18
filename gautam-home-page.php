@@ -25,7 +25,7 @@
         $itemQuery = "INSERT INTO `gautam_transport_item`(`item_name`,`upload_dates`,`beginning_address`,`destination_address`) VALUES('$itemName',CURDATE(),'$start_address','$dest_address') ";
         if(mysqli_query($conn,$itemQuery)){
             $alert=true;
-          
+            mysql_close();
         }
     }
 
@@ -73,6 +73,15 @@
         }else{
             $noResult = true;
         }
+        mysql_close();
+    }
+
+    $requestDiv = false;
+    if(isset($_POST['Search_Request'])){
+       
+        
+            $requestDiv = true;
+         
     }
 
 
@@ -117,19 +126,19 @@
         #customer-search{
             position:absolute;
             background-color: #465e74;
-            /* height:50vh; */
-            /* width:50%; */
             top: 20%;
             left: 18%;
             border-radius:20px;
+            z-index: 2;
             
         }
         .cross{
             float:right;
             margin-right:10%;
         }
-        #search-table{
+        .search-table{
             margin:auto;
+            border-collapse: collapse;
         }
         th{
         color:black;
@@ -144,13 +153,22 @@
         color:black;
         
     }
+    #request{
+        position:absolute;
+        background-color: #465e74;
+        top: 20%;
+        left: 18%;
+        border-radius:20px;
+        z-index: 2;
+    }
+
     </style>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <span><img src="<?php echo$_SESSION['profile-image']; ?> " alt="load.."></span>
+            <span><img src="<?php echo$_SESSION['profile-image']; unset($_SESSION['profile-image']); ?> " alt="load.."></span>
 
             <span class="transport-text">Gautam Transport</span>
             <span class="right-bar"><i onclick="bar();" class="fas fa-bars bar-icon"></i></span>
@@ -175,11 +193,11 @@
     if($showDiv){
     ?>
         <div id="customer-search">
-                <div  class="cross" onclick="hide()">
-                hide
+                <div  class="cross" >
+                <span  onclick="hide()"><i class="fas fa-times-circle"></i></span>
                 </div>
                 <br>
-                <table border="1px" id="search-table">
+                <table  class="search-table">
                     <thead>
                         <th>User_id</th>
                         <th>Email</th>
@@ -194,7 +212,7 @@
                             <td><?php echo$result['user_no'] ;?></td>
                             <td><?php echo$result['full_name']  ;?></td>
                             <td><?php echo$result['email_id'] ;?></td>
-                            <td><img src="<?php  echo$result['profile'] ;?>" alt="" height="15px" width="200px"><?php  echo$result['profile'] ;?></td>
+                            <td><img src="<?php  echo$result['profile'] ;?>" alt="" height="15px" width="200px"></td>
                         </tr>
                      </tbody>
                         
@@ -216,7 +234,47 @@
     }
     ?>
 
+    <?php
+    if($requestDiv){
+        ?>
     
+    <div id="request" >
+        <div><span class="request-cross" onclick="reqHide()"><i class="fas fa-times-circle"></i></span></div>
+        <table class="search-table">
+            <thead>
+                <th>user_no</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Item</th>
+                <th>Date</th>
+            </thead>
+        <?php  
+            $sql = "SELECT * FROM `request_item`  WHERE `request_date` = CURDATE() ";
+            $result = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_assoc($result)){
+                ?>
+                    <tr>
+                        <td> <?php echo$row['user_no'] ?> </td>
+                        <td> <?php echo$row['full_name'] ?> </td>
+                        <td> <?php echo$row['email_id'] ?> </td>
+                        <td> <?php echo$row['item'] ?> </td>
+                        <td> <?php echo$row['request_date'] ?> </td>
+                    </tr>
+                <?php
+            }
+            
+            ?>
+        </table>
+        <script>
+            function reqHide(){
+                document.getElementById('request').style.display='none';
+            }
+        </script>
+    </div>
+    <?php
+        }
+    
+    ?>   
     <section id="content" class="body-content">
         
     <div class="form">
@@ -269,9 +327,9 @@
             </form>
         </div>
         <div class="form">
-            <form action="">
+            <form action="" method="POST">
                 <h3>Customer-Request</h3>
-                <input  id="search-request" type="submit" value="Search-Customer-Request">
+                <input  id="search-request" type="submit" value="Search_Request" name="Search_Request">
             </form>
         </div>
 

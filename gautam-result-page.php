@@ -61,8 +61,7 @@ if($_SESSION['loggedin']!=true){
         text-align:center;
         font-size:large;
         background: linear-gradient(0.25turn,#ff003b94, #607d8b, #f6593ca3);
-        color:black;
-        
+        color:black; 
     }
 </style>
 </head>
@@ -102,7 +101,7 @@ if($_SESSION['loggedin']!=true){
             <th>begining_address</th>
             <th>destination_address</th>
             <th>Contact</th>
-            <th>mail</th>
+            
         </thead>
     
     <?php
@@ -127,7 +126,6 @@ if($_SESSION['loggedin']!=true){
                             <td> <?php echo$result['beginning_address'];?></td>
                             <td> <?php echo$result['destination_address'];?></td>
                             <td><a href="tel:+9779809603594">Call</a></td>
-                            <td>mail</a></td>
                         </tr>
                     </tbody>
                     
@@ -140,8 +138,9 @@ if($_SESSION['loggedin']!=true){
     ?>
 </table>
 
-         
+        <button type="button"><a href="gautam-home-customer.php">Go Back</a></button>
 
+         
 </section>
 <hr style="background-color: #607d8b;height: 5px;border: none;">
 <footer id="footer">

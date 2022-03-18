@@ -40,9 +40,9 @@
                                 $updateToken="UPDATE `session` SET `token` = '$generateToken' WHERE `token` ='$reciveToken' ";
                                 
 
-                                if(mysqli_query($conn,$updateToken)){
-                                    header("location:Gautam-Transport-Login.php");
-                                }
+                                // if(mysqli_query($conn,$updateToken)){
+                                //     header("location:Gautam-Transport-Login.php");
+                                // }
 
                         }else{
                             echo '<script>alert("Invalid Request");</script>';
@@ -98,6 +98,7 @@
             <input id="submit" type="submit" value="change password">
 
         </form>
+        <a href="Gautam-Transport-Login.php">Process to Login</a>
     </section>
 </body>
 </html>
