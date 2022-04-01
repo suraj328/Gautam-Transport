@@ -35,7 +35,7 @@
 
                     $reciver_mail=$email;
                     $subject="Verify Your account by Gautam-Transport";
-                    $body="Hello,$full_name Click on this link to verify your account:<br> http://localhost/Gautam-Transport/verifyAccount.php?token=$token";
+                    $body="Hello,$full_name Click on this link to verify your account: http://localhost/Gautam-Transport/verifyAccount.php?token=$token";
                     $sender_mail="From:shahsuraj328@gamil.com";
     
                     if(mail($reciver_mail,$subject,$body,$sender_mail)){

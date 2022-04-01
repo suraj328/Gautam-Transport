@@ -40,7 +40,7 @@
                             if(password_verify($password,$row['password'])){
                                 $_SESSION['profile-image']=$row['profile'];
                                 $_SESSION['full-name']=$row['full_name'];
-                                // $_SESSION['loggedin']=true;
+                                $_SESSION['loggedin']=true;
                                 $_SESSION['useremail']=$row['email_id'];
 
 
