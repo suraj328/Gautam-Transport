@@ -5,7 +5,7 @@ include 'Backend/dbconfig.php';
 
 
 
-if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
+if($_SESSION['cloggedin']!=true || !isset($_SESSION['cloggedin'])){
     header("location:Gautam-Transport-login.php");
 }
 

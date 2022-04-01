@@ -5,7 +5,7 @@
 
     
 
-    if($_SESSION['loggedin']!=true || !isset($_SESSION['loggedin'])){
+    if($_SESSION['aloggedin']!=true || !isset($_SESSION['aloggedin'])){
         header("location:Gautam-Transport-login.php");
         
     }
@@ -41,7 +41,7 @@
         $checkEmailRow = mysqli_num_rows($checkEmailConn);
 
         if($checkEmailRow == 1){
-            echo"email exist";
+            
             $reciverMail = $email;
             $subject = "From Gautam Transport";
             $body =$messsage;
@@ -61,7 +61,6 @@
     $showDiv = false;
     $noResult = false;
     if(!empty($_POST['customer_name'])){
-        // echo"running";
         $name=trim($_POST['customer_name']);
         $searchCustomer = "SELECT * FROM `session` WHERE `full_name` LIKE '$name%'";
         $searchConn=mysqli_query($conn,$searchCustomer);
@@ -127,13 +126,15 @@
             background-color: #465e74;
             top: 20%;
             left: 18%;
-            border-radius:20px;
+            border: 2px solid burlywood;
+            border-radius:5px;
             z-index: 2;
-            
+
         }
-        .cross{
-            float:right;
-            margin-right:10%;
+        .scross{
+           
+            font-size:20px;
+            margin: auto;
         }
         .search-table{
             margin:auto;
@@ -142,13 +143,13 @@
         th{
         color:black;
         font-size:larger;
-        background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+        border:1px solid black;
     }
     td{
         padding: 5px;
         text-align:center;
         font-size:large;
-        background: linear-gradient(0.25turn,#ff003b94, #607d8b, #f6593ca3);
+        border:1px solid black;
         color:black;
         
     }
@@ -157,8 +158,9 @@
         background-color: #465e74;
         top: 20%;
         left: 18%;
-        border-radius:20px;
         z-index: 2;
+        border: 2px solid burlywood;
+        border-radius: 2px;
     }
 
     </style>
@@ -193,14 +195,14 @@
     ?>
         <div id="customer-search">
                 <div  class="cross" >
-                <span  onclick="hide()"><i class="fas fa-times-circle"></i></span>
+                <span  onclick="hide()"><i class="fas fa-times-circle  scross"></i></span>
                 </div>
                 <br>
                 <table  class="search-table">
                     <thead>
                         <th>User_id</th>
-                        <th>Email</th>
                         <th>Full Name</th>
+                        <th>Email</th>
                         <th>profile</th>
                     </thead>
                     <?php
@@ -279,7 +281,7 @@
     <div class="form">
     <span>
             <?php
-            $msg1="data inserted sucessfully";
+            $msg1="Mail have sent";
             
                 if ($alert) {
                 echo$msg1;

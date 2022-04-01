@@ -40,7 +40,7 @@
                             if(password_verify($password,$row['password'])){
                                 $_SESSION['profile-image']=$row['profile'];
                                 $_SESSION['full-name']=$row['full_name'];
-                                $_SESSION['loggedin']=true;
+                                // $_SESSION['loggedin']=true;
                                 $_SESSION['useremail']=$row['email_id'];
 
 
@@ -55,8 +55,12 @@
                                     $positionQuerryresult = mysqli_num_rows($positionConnQuerry);
                                     if ($positionQuerryresult==1) {
                                         header("location:gautam-home-page.php");
+                                        $_SESSION['aloggedin']=true;
+
                                     }else{
                                         header("location:gautam-home-customer.php");
+                                        $_SESSION['cloggedin']=true;
+
                                     }
                                 }
 
@@ -69,7 +73,7 @@
 
                     }else{
                         $verificationerror=true;
-                        $_SESSION['verificationerror'] = "Please check your mail to vrify your account";
+                        $_SESSION['verificationerror'] = "Please check your mail to verify your account";
                     }
 
                 }
