@@ -174,13 +174,12 @@
             <span class="transport-text">Gautam Transport</span>
             <span class="right-bar"><i onclick="bar();" class="fas fa-bars bar-icon"></i></span>
             <span class="search-box">
-            <input class="search input" type="Search" placeholder="&#xf002; Search" disabled>
-            <button class="search search-btn" type="submit" disabled><i class="fal fa-search"></i></button>
+            <input class="search input" id="product" type="text" value="product"readonly>
         </span>
             <span id="right-content">
-        <a class="active"href="#">Home</a>
+        <a class="active"href="gautam-home-page.php">Home</a>
         <a href="tel:+9779809603594">Contact</a>
-        <a href="https://www.google.com/maps/dir/26.9834942,85.8913698/XVRQ%2BHP9+Gautam+Dhuwanii+sewa,+Bardibas+45701/@26.9869717,85.8867008,16z/data=!3m1!4b1!4m17!1m6!3m5!1s0x39ec736141511f39:0x2e8be892dc0bb878!2sGautam+Dhuwanii+sewa!8m2!3d26.9914141!4d85.8893788!4m9!1m1!4e1!1m5!1m1!1s0x39ec736141511f39:0x2e8be892dc0bb878!2m2!1d85.8893788!2d26.9914141!3e0">Location</a>
+        <a href="https://goo.gl/maps/sCqvBRuafiZfd7Gm8">Location</a>
         <select name="session" id="session">
             <option value="nochange" selected disabled></option>
             <option value="gautam-change-password.php">Change Pw</option></a>
@@ -281,7 +280,7 @@
     <div class="form">
     <span>
             <?php
-            $msg1="Mail have sent";
+            $msg1="Your Item have Inserted";
             
                 if ($alert) {
                 echo$msg1;
@@ -338,11 +337,12 @@
     <hr style="background-color: #607d8b;height: 5px;border: none;">
     <footer id="footer">
 
-        <!-- <a href="tel:+9779809603594">Call</a>--> <span>Gautam Transport</span> 
+         <span>Gautam Transport</span> 
 
     </footer>
 </body>
 <script src="js/gautam-home-navbar-js.js"></script>
-
+<script src="./Js/main.js"></script>
+<script src="./Js/jqajax.js"></script>
         
 </html>
