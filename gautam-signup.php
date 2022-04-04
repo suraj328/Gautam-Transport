@@ -95,6 +95,7 @@
         <div class="login-background display-grid">
             <div class="inner-div form-background">
                 <p id="Gautam">Gautam Transport</p>
+                <a href="Gautam-Transport-Login.php">Process to login</a>
                 <form action="http://localhost/Gautam-Transport/gautam-signup.php" method="POST" id="sign-up" enctype="multipart/form-data" onsubmit="event.preventDefault();validateForm();">
                     <div class="input-block">
                         <input type="text" placeholder="&#xf007; Full Name" id="full_name" name=full_name>

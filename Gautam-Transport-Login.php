@@ -142,7 +142,7 @@
             <div class="inner-div form-background">
                 <form action="http://localhost/Gautam-Transport/Gautam-Transport-Login.php" method="POST">
                     <div class="input-block">
-                        <a class="create-account" href="gautam-signup.php" target="parent">Craete an Account</a>
+                        <a class="create-account" href="gautam-signup.php" target="parent">Create an Account</a>
                         <div class="alert-error">
                             <?php
                             if ($verificationerror==true) {
